@@ -1,0 +1,11 @@
+services:
+  bot:
+    build: .
+    container_name: puteador_bot
+    env_file:
+      - .env
+    volumes:
+      - ./:/app:cached
+    restart: unless-stopped
+    tty: true
+    command: ["python", "-m", "src.bot_main"]
